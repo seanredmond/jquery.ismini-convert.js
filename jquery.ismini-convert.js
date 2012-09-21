@@ -1,22 +1,22 @@
 /*
- * jQuery WinGreek Converter: jQuery plugin to convert WinGreek to Unicode
+ * jQuery Ismini Converter: jQuery plugin to convert Ismini to Unicode
  *
  * © 2012 Sean Redmond.
  *
- * This file is part of jQuery WinGreek Converter.
+ * This file is part of jQuery Ismini Converter.
  * 
- * jQuery WinGreek Converter is free software: you can redistribute it and/or
+ * jQuery Ismini Converter is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or (at your
  * option) any later version.
  * 
- * jQuery WinGreek Converter is distributed in the hope that it will be 
+ * jQuery Ismini Converter is distributed in the hope that it will be 
  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General 
  * Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License along
- * w/ jQuery WinGreek Converter.  If not, see 
+ * w/ jQuery Ismini Converter.  If not, see 
  * <http://www.gnu.org/licenses/>.
  */
 
@@ -347,20 +347,20 @@
                 });
             },
 
-            _atoms: function (wingreek, options) {
+            _atoms: function (ismini, options) {
                 var match = null,
                     greek,
                     defaults = {
                         ignore_invalid: false
                     };
 
-                if (!wingreek) {
+                if (!ismini) {
                     return '';
                 }
 
                 options = $.extend({}, defaults, options);
                 $.each(regexes, function (i, re) {
-                    match = re[0].exec(wingreek);
+                    match = re[0].exec(ismini);
                     if (match) {
                         var letter;
                         if (re[1][0] === RE_LETTER) {
@@ -389,16 +389,16 @@
                 if (match === null) {
                     if (options.ignore_invalid === true) {
                         return methods._atoms(
-                            wingreek.substring(1),
+                            ismini.substring(1),
                             options
                         );
                     } 
-                    $.error('Invalid character \"' + wingreek[0] + '\" (' + wingreek[0].charCodeAt(0).toString(16) + ')');
+                    $.error('Invalid character \"' + ismini[0] + '\" (' + ismini[0].charCodeAt(0).toString(16) + ')');
                 }
 
                 return greek +
                     methods._atoms(
-                        wingreek.substring(match.index + match[0].length),
+                        ismini.substring(match.index + match[0].length),
                         options
                     );
             },
@@ -433,13 +433,13 @@
                         }
                         n.data = converted;
                     } else {
-                        $(n).wingreek2utf8('convert', options);
+                        $(n).ismini2utf8('convert', options);
                     }
                 });
             }
         };
 
-    $.fn.wingreek2utf8 = function (method) {
+    $.fn.ismini2utf8 = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         }
@@ -448,20 +448,6 @@
             return methods.init.apply(this, arguments);
         }
 
-        $.error('Method ' +  method + ' does not exist on jQuery.wingreek2utf8');
+        $.error('Method ' +  method + ' does not exist on jQuery.ismini2utf8');
     };
 }(jQuery));
-
-/*
- * UNICODE NOTES
- *
- * According to the TLG Beta Code Manual 2011, corner brackets will have 
- * different representations in the "next version" (after Unicode 5.0, but not,
- * apparently, yet in 6.0). 
- *
- * lower left  0x24 0x230a 0x2e44 [5
- * lower right      0x230b 0x2e45 ]5
- * 
- * <http://www.tlg.uci.edu/encoding/BCM2011.pdf>
- */
-

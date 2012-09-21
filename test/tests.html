@@ -2,162 +2,162 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>WinGreek Conversion Tests</title>
+    <title>Ismini Conversion Tests</title>
 
     <link rel="stylesheet" href="qunit.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
     <script src="qunit.js"></script>
-    <script src="../jquery.wingreek-convert.js"></script>
+    <script src="../jquery.ismini-convert.js"></script>
     <script>
     test("Uppercase Letters without diacriticals", function() {
         var greek = $('#uc-no-diacriticals');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ΑΒΓΔΕ ΖΗΘΙΚ ΛΜΝΞΟ ΠΡΣΤΥ ΦΧΨΩ ϜϠϚ");
     });
 
     test("Lowercase Letters without diacriticals", function() {
         var greek = $('#lc-no-diacriticals');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "αβγδε ζηθικ λμνξο πρστυ φχψω ςϘ");
     });
 
     test("Alphas with diacriticals", function() {
         var greek = $('#alphas');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἁἀάἅἄ ὰἃἂᾶἇ ἆᾁᾀᾴᾅ ᾄᾲᾃᾂᾷ ᾇᾆ");
     });
 
     test("Epsilons with diacriticals", function() {
         var greek = $('#epsilons');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), "ἑἐέἕἔ ὲἓἒε͂");
     });
 
     test("Etas with diacriticals", function() {
         var greek = $('#etas');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), "ῃἡἠήἥ ἤὴἣἢῆ ἧἦᾑᾐῄ ᾕᾔῂᾓᾒ ῇᾗᾖ");
     });
 
     test("Iotas with diacriticals", function() {
         var greek = $('#iotas');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἱἰίἵἴ ὶἳἲῖἷ ἶϊΐῒῑ");
     });
 
     test("Omicrons with diacriticals", function() {
         var greek = $('#omicrons');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ὁὀόὅὄ ὸὃὂο͂");
     });
 
     test("Upsilons with diacriticals", function() {
         var greek = $('#upsilons');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ὑὐύὕ ὔὺὓὒῦ ὗὖϋΰῢῡ");
     });
     
     test("Omegas with diacriticals", function() {
         var greek = $('#omegas');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), "ὡὠώὥὤ ὼὣὢῶὧ ὦᾡᾠῴᾥ ᾤῲᾣᾢῷ ᾧᾦ");
     });
 
     test("Rhos with diacriticals", function() {
         var greek = $('#rhos');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), "ῥῤ");
     });
 
     test("Bare diacritical symbols", function() {
         var greek = $('#bare-diacrits');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), "᾿´¨`῀ ῾῟῏῞῎ ῝῍΅ͺ");
     });
 
     test("Other symbols", function() {
         var greek = $('#other');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), "↙※·«»");
     });
 
     test("Unconverted characters", function() {
         var greek = $('#pass-thru');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         strictEqual(greek.text(), " (),- .´012 34567 89<>[ `]{|}");
     });
 
     test("Capitals combined with acute", function () {
         var greek = $('#combined-cap-acute');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ΆΈΉΊΌΎΏ");
     });
 
     test("Capitals combined with grave", function () {
         var greek = $('#combined-cap-grave');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ᾺῈῊῚῸῪῺ");
     });
 
     test("Capitals combined with smooth breathing", function () {
         var greek = $('#combined-cap-smooth');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἈἘἨἸὈὨ");
     });
 
     test("Capitals combined with rough breathing", function () {
         var greek = $('#combined-cap-rough');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἉἙἩἹὉῬὙὩ");
     });
 
     test("Capitals combined with smooth breathing and grave", function () {
         var greek = $('#combined-cap-smooth-grave');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἊἚἪἺὊὪ");
     });
 
     test("Capitals combined with rough breathing and grave", function () {
         var greek = $('#combined-cap-rough-grave');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἋἛἫἻὋὛὫ");
     });
 
 
     test("Capitals combined with smooth breathing and acute", function () {
         var greek = $('#combined-cap-smooth-acute');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἌἜἬἼὌὬ");
     });
 
     test("Capitals combined with rough breathing and acute", function () {
         var greek = $('#combined-cap-rough-acute');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἍἝἭἽὍὝὭ");
     });
 
     test("Capitals combined with smooth breathing and circumflex", function () {
         var greek = $('#combined-cap-smooth-circumflex');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἎἮἾὮ");
     });
 
     test("Capitals combined with rough breathing and circumflex", function () {
         var greek = $('#combined-cap-rough-circumflex');
-        greek.wingreek2utf8('convert');
+        greek.ismini2utf8('convert');
         equal(greek.text(), "ἏἯἿὟὯ");
     });
 
     test("Uncombined capitals", function () {
         var greek = $('#combined-cap-smooth');
-        greek.wingreek2utf8('convert', {combine: false});
+        greek.ismini2utf8('convert', {combine: false});
         equal(greek.text(), "᾿Α᾿Ε᾿Η᾿Ι᾿Ο᾿Ω");
     });
 
     test("Throw invalid character error", function () {
         var greek = $('#invalid-ascii');
         raises(function () {
-            greek.wingreek2utf8('convert', {combine: false})}, 
+            greek.ismini2utf8('convert', {combine: false})}, 
             Error, 
             "Must throw error to pass."
         );
@@ -165,7 +165,7 @@
 
     test("Ignore invalid character error", function () {
         var greek = $('#invalid-ascii');
-        greek.wingreek2utf8('convert', {combine: false, ignore_invalid: true});
+        greek.ismini2utf8('convert', {combine: false, ignore_invalid: true});
         equal(greek.text(), 'α  β');
     });
     </script>

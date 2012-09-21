@@ -1,4 +1,4 @@
-jquery.wingreek-convert.js
+jquery.ismini-convert.js
 ===========================
 
-jQuery plugin for converting WinGreek to Unicode
+jQuery plugin for converting Ismini Greek font to Unicode
